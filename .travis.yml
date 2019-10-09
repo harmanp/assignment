@@ -5,4 +5,11 @@ node_js:
 catche: npm
 before_install:
 	-ls -la
+	-mkdir public
+	-ls -la
+install:
+	-ls -la
+	-npm install
+	-ls -la
+
 
