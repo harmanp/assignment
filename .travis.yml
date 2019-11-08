@@ -1,15 +1,25 @@
 # https://github.com/harmanp/course-material/
+# harmanp
 language: node_js
 node_js:
-	- "10.9.0"
-catche: npm
-before_install:
-	-ls -la
-	-mkdir public
-	-ls -la
+  - 10.9.0
+
+cache: npm
+
 install:
-	-ls -la
-	-npm install
-	-ls -la
+  - npm install
+
+script:
+  - npm run build
+  - npm run test
+  
+before_install:
+  - "npm config set spin false"
+  - npm i -g now
+
+deploy:
+  provider: script
+  script: bash scripts/deploy.sh
+  skip_cleanup: true
 
 
